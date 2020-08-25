@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f6d689a4-e10d-4b36-b06d-0da1bd8e346c" name="wirenboard-AFIQ363N">
+        <fileTransfer accessType="SFTP" host="10.0.0.23" port="22" sshConfigId="187cbc38-d90f-4033-a33d-f6c65ccdc91f" sshConfig="root@10.0.0.23:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="b0d5144c-7fe6-40f0-8824-e3d2073ac1f0" name="wirenboard-ANA4QEKI">
+        <fileTransfer accessType="SFTP" host="192.168.255.54" port="22" sshConfigId="b96ba09b-bb48-412f-9b78-c37f2929706c" sshConfig="root@192.168.255.54:22 agent" authAgent="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

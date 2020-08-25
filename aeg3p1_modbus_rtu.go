@@ -14,7 +14,7 @@ import (
 !!!!!!!!!!!! VERSION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 */
-const version = "0.0.1"
+const version = "0.0.2"
 
 /*
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -122,6 +122,7 @@ func main() {
 	slaveID := flag.Int("id", 1, "an int")
 	timeout := flag.Int("t", 3000, "an int")
 	typOfReg := flag.Int("type", 1, "an int")
+	debugOn := flag.Int("d", 0, "an int")
 	regQuantity := flag.Uint("q", 76, "an uint")
 	/*dataBits := flag.Int("dbits", 1, "a int")
 	parity := flag.String("parity", "E", "a string")
@@ -177,6 +178,12 @@ func main() {
 		if err != nil {
 			printError(err)
 		}
+
+		if *debugOn != 0 {
+			fmt.Println(len(results))
+			fmt.Println(results)
+		}
+
 		printResult(results)
 		/*fmt.Println(len(results))
 		fmt.Println(results)
@@ -188,6 +195,12 @@ func main() {
 		if err != nil {
 			printError(err)
 		}
+
+		if *debugOn != 0 {
+			fmt.Println(len(results))
+			fmt.Println(results)
+		}
+
 		printResult(results)
 		/*fmt.Println(len(results))
 		fmt.Println(results)
@@ -198,6 +211,15 @@ func main() {
 	/*var ttt = []byte{0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 244, 0, 226, 0, 225, 0, 225, 1, 244, 0, 230, 0, 229, 0, 229, 0, 243, 0, 0, 5, 220, 0, 100, 4, 86, 1, 244, 0, 219, 0, 6, 0, 1, 0, 1, 0, 219, 0, 19, 0, 2, 0, 1, 0, 219, 0, 43, 0, 4, 0, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	var ttt = []byte{}
 	printResult(ttt)*/
+	/* снято с 65 подстанции
+	110
+	[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 65 69 71 32 80 111 119 101 114 32 83 111 108 117 116 105 111 110 115 0 0 0 0 0 0 0 0 0 0 0 0 0 80 82 79 84 69 67 84 32 56 32 49 48 107 86 65 0 0 0 0 0 0 0 0 0]
+	*/
+	/*
+		110
+		[0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 0 1 0 0 1 247 0 225 0 225 0 226 1 247 0 227 0 243 0 0 19 6 0 100 4 86 1 246 0 220 0 11 0 10 0 20 0 1]
+	*/
+
 }
 
 func printError(err error) {
@@ -213,6 +235,8 @@ func printResult(data []byte) {
 				var temp2 string
 				a := binary.BigEndian.Uint16(data[i*2 : (i*2)+2])
 				switch a {
+				case 0:
+					temp2 = "\"NA\""
 				case 1:
 					temp2 = "\"Normal_mode\""
 				case 2:

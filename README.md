@@ -14,6 +14,8 @@ Programm flags:
 	
 -q - quantity of janitza modbus arguments, value range 1 - 76 (defaut value 76)
 
+-d - debug mode, returns raw modbus bit data
+
 **Note:** UPS serial port config "8E1" 
 
 
