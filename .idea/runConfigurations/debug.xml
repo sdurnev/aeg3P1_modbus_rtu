@@ -2,6 +2,7 @@
   <configuration default="false" name="debug" type="GoApplicationRunConfiguration" factoryName="Go Application">
     <module name="aeg3P1_modbus_rtu" />
     <working_directory value="$PROJECT_DIR$/" />
+    <parameters value="-ip=10.0.0.20 -port=503 -id=3" />
     <kind value="PACKAGE" />
     <filePath value="$PROJECT_DIR$/aeg3p_modbus_rtu.go" />
     <package value="aeg3P1_modbus_rtu" />
